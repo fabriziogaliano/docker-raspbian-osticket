@@ -6,9 +6,6 @@ getent group $APP_GROUP || groupadd $APP_GROUP
 #create application user if not exists and assig it to the specified application group
 id -u $APP_USER &>/dev/null || adduser -D -s /bin/bash $APP_USER $APP_GROUP
 
-#create application folder if not exists
-if ! [[ -d $APP_CWD ]] ; then mkdir -p $APP_CWD ; fi
-
 #assign user and group permission to application folder
 chown $APP_USER:$APP_GROUP $APP_CWD
 
