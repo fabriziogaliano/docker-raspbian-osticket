@@ -75,7 +75,9 @@ COPY . /docker
 # Expose ports
 EXPOSE 80 443
 
-ENTRYPOINT ["bash", "/docker/scripts/entrypoint.sh"]
-CMD ["start-stack"]
+# ENTRYPOINT ["bash", "/docker/scripts/entrypoint.sh"]
+# CMD ["start-stack"]
+
+CMD ["bash", "/docker/scripts/entrypoint.sh"]
 
 WORKDIR $APP_CWD
