@@ -62,7 +62,7 @@ RUN mkdir -p /app/code
 
 # Install OSTicket
 RUN git clone https://github.com/osTicket/osTicket -b 1.9.x /tmp \
-    && cd /tmp
+    && cd /tmp \
     && git reset --hard 70898b3 \
     && mv /tmp/osTicket/* /app/code \
     && chown www-data:www-data /app -R
