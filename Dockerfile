@@ -78,8 +78,7 @@ RUN git clone https://github.com/osTicket/osTicket -b 1.9.x /tmp \
 
 RUN apt remove -yf git
 
-RUN touch /etc/msmtp \
-    /etc/osticket.secret.txt \
+RUN touch /etc/osticket.secret.txt \
     /etc/cron.d/osticket \
     && chown www-data:www-data \
     /etc/msmtp \

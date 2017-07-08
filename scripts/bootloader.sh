@@ -12,6 +12,13 @@ cp /docker/configuration/php-fpm/php-fpm.conf /etc/php/php-fpm.conf
 #add osticket configuration
 cp /docker/configuration/osticket/msmtp.default /etc/msmtp.default
 
+touch /etc/osticket.secret.txt \
+      /etc/cron.d/osticket \
+      && chown www-data:www-data \
+      /etc/msmtp.default \
+      /etc/osticket.secret.txt \
+      /etc/cron.d/osticket
+
 for var in $(printenv); do
 
     #explode vars to retrive key/value pairs
