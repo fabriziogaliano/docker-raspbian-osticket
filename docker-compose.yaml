@@ -4,6 +4,7 @@ services:
 
   osticket-web:
     image: fabriziogaliano/docker-raspbian-osticket
+    container_name: osticket-web
     environment:
       - MYSQL_HOST=osticket-mysql
       - MYSQL_DATABASE=osticket
@@ -13,7 +14,7 @@ services:
       # CHANGE ME
       - INSTALL_SECRET=secret
         
-      - LANGUAGE=fa
+      - LANGUAGE=en
 
     links:
       - osticket-mysql:osticket-mysql
@@ -24,6 +25,7 @@ services:
 
   osticket-mysql:
     image: mariadb:10.3
+    container_name: osticket-mysql
     volumes:
        - "./data:/var/lib/mysql"
     environment:

@@ -30,7 +30,7 @@ RUN apt update \
     nginx \
     php5-fpm
 
-# Install software dependencies
+# Install software dependencies for raspbian
 RUN apt install -yf \
     php5-json \
     php-xml-parser \
