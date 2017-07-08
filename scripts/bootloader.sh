@@ -9,7 +9,7 @@ cp /docker/configuration/php/php.ini /etc/php/php.ini
 #add php-fpm configuration template
 cp /docker/configuration/php-fpm/php-fpm.conf /etc/php/php-fpm.conf
 
-#add osticket configuration
+#osticket installation and configuration
 cp /docker/configuration/osticket/msmtp.default /etc/msmtp.default
 
 touch /etc/osticket.secret.txt \
@@ -18,6 +18,12 @@ touch /etc/osticket.secret.txt \
       /etc/msmtp.default \
       /etc/osticket.secret.txt \
       /etc/cron.d/osticket
+
+git clone https://github.com/osTicket/osTicket -b 1.9.x /tmp \
+    && cd /tmp \
+    && git reset --hard 70898b3 \
+    && mv /tmp/osTicket/* /app/code \
+    && chown www-data:www-data /app -R
 
 for var in $(printenv); do
 

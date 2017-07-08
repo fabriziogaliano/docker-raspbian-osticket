@@ -69,22 +69,6 @@ RUN rm -rv /var/lib/apt
 
 RUN mkdir -p /app/code
 
-# Install OSTicket
-RUN git clone https://github.com/osTicket/osTicket -b 1.9.x /tmp \
-    && cd /tmp \
-    && git reset --hard 70898b3 \
-    && mv /tmp/osTicket/* /app/code \
-    && chown www-data:www-data /app -R
-
-RUN apt remove -yf git
-
-RUN touch /etc/osticket.secret.txt \
-    /etc/cron.d/osticket \
-    && chown www-data:www-data \
-    /etc/msmtp \
-    /etc/osticket.secret.txt \
-    /etc/cron.d/osticket
-
 # Add configuration files
 COPY . /docker
 
