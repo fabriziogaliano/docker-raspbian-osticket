@@ -23,7 +23,7 @@ mkdir /temp \
     && git clone https://github.com/osTicket/osTicket -b 1.9.x /temp \
     && cd /temp \
     && git reset --hard 70898b3 \
-    && mv /tmp/osTicket/* /app/code \
+    && mv /temp/osTicket/* /app/code \
     && chown www-data:www-data /app -R \
     && rm -rf /temp
 
