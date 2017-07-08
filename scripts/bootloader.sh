@@ -1,14 +1,5 @@
 #!/bin/env bash
 
-#create group if not exists
-getent group $APP_GROUP || groupadd $APP_GROUP
-
-#create application user if not exists and assig it to the specified application group
-id -u $APP_USER &>/dev/null || adduser -D -s /bin/bash $APP_USER $APP_GROUP
-
-#assign user and group permission to application folder
-chown $APP_USER:$APP_GROUP $APP_CWD
-
 #add vhost configuration template
 cp /docker/configuration/nginx/default.conf /etc/nginx/conf.d/default.conf
 
