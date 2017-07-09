@@ -24,6 +24,7 @@ FPM_CLEARENV='no'
 # Install base software
 RUN apt update \
     && apt install -yf \
+    bash \
     git \
     cron \
     supervisor \
