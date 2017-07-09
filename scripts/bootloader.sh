@@ -1,6 +1,6 @@
 #!/bin/env bash
 #add vhost configuration template
-cp /docker/configuration/nginx/default.conf /etc/nginx/site-available/default
+cp /docker/configuration/nginx/default.conf /etc/nginx/sites-available/default
 #add php configuration template
 cp /docker/configuration/php/php.ini /etc/php5/cli/php.ini
 #add php-fpm configuration template
@@ -14,13 +14,7 @@ chown www-data:www-data /etc/msmtp.default
 chown www-data:www-data /etc/osticket.secret.txt
 chown www-data:www-data /etc/cron.d/osticket
 ###   ###   ###   ###
-mkdir /temp \
-    && git clone https://github.com/osTicket/osTicket -b 1.9.x /temp \
-    && cd /temp \
-    && git reset --hard 70898b3 \
-    && mv /temp/osTicket/* /app/code \
-    && chown www-data:www-data /app -R \
-    && rm -rf /temp
+#environment substitution
 for var in $(printenv); do
     #explode vars to retrive key/value pairs
     IFS='=' read -r -a array <<< $var
