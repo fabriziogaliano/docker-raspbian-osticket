@@ -27,8 +27,8 @@ for var in $(printenv); do
     export KEY=${array[0]}
     if [[ $KEY =~ VHOST_|PHP_|FPM_ ]]; then
         export VALUE=${array[1]}
-        sed -i -e 's|<'$KEY'>|'$VALUE'|g' '/etc/nginx/conf.d/default.conf'
-        sed -i -e 's|<'$KEY'>|'$VALUE'|g' '/etc/php/php.ini'
-        sed -i -e 's|<'$KEY'>|'$VALUE'|g' '/etc/php/php-fpm.conf'
+        sed -i -e 's|<'$KEY'>|'$VALUE'|g' '/etc/nginx/site-available/default'
+        sed -i -e 's|<'$KEY'>|'$VALUE'|g' '/etc/php5/cli/php.ini'
+        sed -i -e 's|<'$KEY'>|'$VALUE'|g' '/etc/php5/fpm/php-fpm.conf'
     fi
 done
