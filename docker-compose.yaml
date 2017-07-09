@@ -17,7 +17,7 @@ services:
       - LANGUAGE=en
 
     links:
-      - osticket-mysql:osticket-mysql
+      - osticket-web:osticket-mysql
       
     ports:
       - "5335:80"

@@ -1,18 +1,19 @@
 #!/bin/env bash
 #add vhost configuration template
-cp /docker/configuration/nginx/default.conf /etc/nginx/conf.d/default.conf
+cp /docker/configuration/nginx/default.conf /etc/nginx/site-available/default
 #add php configuration template
-cp /docker/configuration/php/php.ini /etc/php/php.ini
+cp /docker/configuration/php/php.ini /etc/php5/cli/php.ini
 #add php-fpm configuration template
-cp /docker/configuration/php-fpm/php-fpm.conf /etc/php/php-fpm.conf
+cp /docker/configuration/php-fpm/php-fpm.conf /etc/php5/fpm/php-fpm.conf
 #osticket installation and configuration
 cp /docker/configuration/osticket/msmtp.default /etc/msmtp.default
-touch /etc/osticket.secret.txt \
-      /etc/cron.d/osticket \
-      && chown www-data:www-data \
-      /etc/msmtp.default \
-      /etc/osticket.secret.txt \
-      /etc/cron.d/osticket
+### try to beleave ###
+touch /etc/osticket.secret.txt
+touch /etc/cron.d/osticket
+chown www-data:www-data /etc/msmtp.default
+chown www-data:www-data /etc/osticket.secret.txt
+chown www-data:www-data /etc/cron.d/osticket
+###   ###   ###   ###
 mkdir /temp \
     && git clone https://github.com/osTicket/osTicket -b 1.9.x /temp \
     && cd /temp \
