@@ -4,7 +4,8 @@
 
 //Script settings
 
-define('INSTALL_DIR','/var/www/src/public');
+// define('INSTALL_DIR','/var/www/src/public');
+define('INSTALL_DIR','/app/code');
 define('SETUP_DIR',INSTALL_DIR.'/../setup'); // use git setup
 define('INC_DIR',INSTALL_DIR.'/include');
 define('INSTALL_CONFIG',INC_DIR.'/ost-sampleconfig.php');
