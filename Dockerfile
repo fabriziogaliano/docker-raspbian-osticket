@@ -66,7 +66,7 @@ RUN apt install -yf \
     # php-xmlreader
 
 # Install osTicket    
-mkdir /temp \
+RUN mkdir /temp \
     && git clone https://github.com/osTicket/osTicket -b 1.9.x /temp \
     && cd /temp \
     && git reset --hard 70898b3 \
